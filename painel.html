@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Painel | Casa Aurora (demonstração)</title>
+<link rel="preload" href="assets/fonts/fraunces-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-sans-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css?v=20261018u1">
+<link rel="stylesheet" href="css/site.css?v=20261018u1">
+<link rel="stylesheet" href="css/painel.css?v=20261018u1">
+</head>
+<body class="pn">
+<header class="pn-topo">
+  <a class="marca" href="index.html"><span class="marca-sel">A</span><span class="marca-nome">Área da equipe · Casa Aurora</span></a>
+  <nav class="abas" role="tablist">
+    <button role="tab" data-aba="agenda" aria-selected="true">Agenda</button>
+    <button role="tab" data-aba="recados" aria-selected="false">Recados <b id="nRec" hidden></b></button>
+    <button role="tab" data-aba="lembretes" aria-selected="false">Lembretes <b id="nLemb" hidden></b></button>
+  </nav>
+  <button class="btn btn-linha btn-sm" id="btnDados">Dados</button>
+</header>
+
+<main class="pn-main">
+  <p class="demo-banner">Demonstração de portfólio: pacientes, médicas e recados são fictícios e ficam apenas neste navegador.</p>
+  <section class="resumo" id="resumo"></section>
+
+  <section class="aba" id="aba-agenda">
+    <div class="barra">
+      <div class="nav-dia">
+        <button class="btn btn-linha btn-sm" id="navAnt" aria-label="Anterior">‹</button>
+        <strong class="rotulo" id="rotulo"></strong>
+        <button class="btn btn-linha btn-sm" id="navProx" aria-label="Próximo">›</button>
+        <button class="btn btn-linha btn-sm" id="navHoje">Hoje</button>
+      </div>
+      <div class="visoes" role="group" aria-label="Tipo de visualização">
+        <button data-v="semana" aria-pressed="true">Semana</button>
+        <button data-v="mes" aria-pressed="false">Mês</button>
+      </div>
+    </div>
+    <div class="barra">
+      <select id="filtroMedica" aria-label="Filtrar por médica"></select>
+      <div class="legenda" id="legenda"></div>
+      <button class="btn btn-ouro btn-sm" id="novaConsulta">+ Nova consulta</button>
+    </div>
+    <div class="visao" id="visao"></div>
+    <h2 class="tit-dia" id="titDia"></h2>
+    <div class="lista" id="listaAgenda"></div>
+  </section>
+
+  <section class="aba" id="aba-recados" hidden>
+    <p class="dica">Recados deixados pela assistente do site, com a conversa completa. Responda pelo WhatsApp ou transforme em consulta.</p>
+    <div class="filtros" id="filtroRec"></div>
+    <div class="lista" id="listaRec"></div>
+  </section>
+
+  <section class="aba" id="aba-lembretes" hidden>
+    <form class="form-linha" id="formLemb">
+      <input name="texto" placeholder="Novo lembrete (ex.: enviar orientações do encontro pré-parto)" required maxlength="140">
+      <input type="date" name="data" required>
+      <input type="time" name="hora" required>
+      <button class="btn btn-ouro btn-sm">Adicionar</button>
+    </form>
+    <p class="dica" id="notifInfo"></p>
+    <div class="lista" id="listaLemb"></div>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <form class="modal-caixa" id="formCons">
+    <h3 id="modalTit">Nova consulta</h3>
+    <input type="hidden" name="id">
+    <input type="hidden" name="leadId">
+    <label>Paciente<input name="paciente" required maxlength="80"></label>
+    <label>WhatsApp<input name="telefone" inputmode="tel" placeholder="35 91234-5678"></label>
+    <div class="dois">
+      <label>Data<input type="date" name="data" required></label>
+      <label>Hora<input type="time" name="hora" required></label>
+    </div>
+    <div class="dois">
+      <label>Médica<select name="medica" id="selMedica"></select></label>
+      <label>Tipo<select name="tipo"><option>Pré-natal</option><option>Primeira consulta</option><option>Retorno</option><option>Encontro pré-parto</option><option>Consultoria</option><option>Outro</option></select></label>
+    </div>
+    <label>Situação<select name="status"><option value="agendada">Agendada</option><option value="confirmada">Confirmada</option><option value="realizada">Realizada</option><option value="faltou">Faltou</option><option value="cancelada">Cancelada</option></select></label>
+    <label>Observações<textarea name="obs" rows="2" maxlength="300"></textarea></label>
+    <label class="check"><input type="checkbox" name="lembrar" checked> Criar lembrete para confirmar com a paciente 1 dia antes</label>
+    <p class="erro" id="erroCons" hidden></p>
+    <div class="modal-acoes">
+      <button type="button" class="btn btn-linha btn-sm" id="cancelaCons">Cancelar</button>
+      <button class="btn btn-ouro btn-sm">Salvar</button>
+    </div>
+  </form>
+</div>
+
+<div class="modal" id="modalDados" hidden>
+  <div class="modal-caixa">
+    <h3>Dados do painel</h3>
+    <p class="dica">Os dados ficam salvos neste navegador. Faça backup para não perder e para levar a outro computador.</p>
+    <div class="modal-acoes col">
+      <button class="btn btn-linha btn-sm" id="btnExp">Baixar backup (.json)</button>
+      <label class="btn btn-linha btn-sm">Restaurar backup<input type="file" id="fileImp" accept=".json" hidden></label>
+      <button class="btn btn-linha btn-sm" id="btnDemo">Carregar dados de exemplo</button>
+      <button class="btn btn-linha btn-sm perigo" id="btnLimpa">Apagar tudo</button>
+      <button class="btn btn-ouro btn-sm" id="fechaDados">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="js/config.js?v=20261018u1"></script>
+<script src="js/db.js?v=20261018u1"></script>
+<script src="js/painel.js?v=20261018u1"></script>
+</body>
+</html>

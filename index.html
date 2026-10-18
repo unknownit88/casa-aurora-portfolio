@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Aurora | Assistência ao Parto</title>
+<meta name="description" content="Casa Aurora (clínica fictícia de portfólio): três obstetras dedicadas ao parto respeitoso e ao cuidado individual. Converse sobre o seu plano de parto.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f9dfe4">
+<link rel="preload" href="assets/fonts/fraunces-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-sans-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css?v=20261018u1">
+<link rel="stylesheet" href="css/site.css?v=20261018u1">
+</head>
+<body class="lp">
+
+<header class="topo" id="topo">
+  <a class="marca" href="#inicio" aria-label="Casa Aurora, início"><img src="assets/logo-mark-rosa.svg" alt="" width="57" height="44"><span class="marca-txt"><b>Casa Aurora</b><small>Assistência ao parto</small></span></a>
+  <nav class="menu" id="menu" aria-label="Principal">
+    <a href="#manifesto">Quem somos</a><a href="#diferenciais">Diferenciais</a><a href="#como">Como trabalhamos</a><a href="#equipe">Equipe</a><a href="#duvidas">Dúvidas</a><a href="painel.html" class="menu-equipe">Área da equipe</a>
+  </nav>
+  <button class="btn btn-terra btn-sm" data-abrir-chat>Conversar sobre meu parto</button>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <img class="marca-dagua rosa" src="assets/aurora-arcos-rosa.svg" alt="" aria-hidden="true">
+    <div class="hero-txt reveal">
+      <p class="etiqueta">Casa Aurora · Assistência ao parto</p>
+      <h1>Seu parto, <em>do seu jeito</em>, com quem conhece a sua história.</h1>
+      <p class="lead">Somos três obstetras dedicadas ao parto respeitoso e ao cuidado individual, sempre baseado em evidências científicas.</p>
+      <div class="acoes">
+        <button class="btn btn-terra" data-abrir-chat>Quero conversar sobre meu parto</button>
+        <a class="btn btn-linha" href="#equipe">Conhecer as médicas</a>
+      </div>
+    </div>
+    <figure class="hero-foto reveal">
+      <img src="assets/equipe-abraco.jpg" alt="As três médicas da Casa Aurora abraçadas" width="843" height="470" fetchpriority="high">
+      <button class="cartao-flutuante" data-abrir-chat>
+        <span class="fab-av-wrap"><img class="fab-av" src="assets/lina.jpg" alt="" width="44" height="44"><span class="ponto"></span></span>
+        <span><strong data-cfg="assistente"></strong> · assistente virtual<br><small>Tire dúvidas e deixe seu recado</small></span>
+      </button>
+    </figure>
+  </section>
+
+  <section class="sec sec-escuro" id="manifesto">
+    <div class="miolo duas">
+      <div class="reveal">
+        <p class="etiqueta">Quem somos</p>
+        <h2>Cuidado que <em>começa na escuta</em>.</h2>
+      </div>
+      <div class="reveal texto-grande">
+        <p>Acreditamos que um bom parto nasce de boas conversas. Por isso, cada escolha é feita junto com você.</p>
+        <p>Acompanhamos a gestação do primeiro exame ao primeiro colo, sempre com a mesma equipe.</p>
+        <p class="assina">Equipe Casa Aurora</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="diferenciais">
+    <div class="miolo">
+      <p class="etiqueta reveal">Diferenciais</p>
+      <h2 class="reveal">Uma assistência feita de <em>vínculo e segurança</em>.</h2>
+      <div class="grade" id="diferenciaisGrade"></div>
+    </div>
+  </section>
+
+  <section class="sec sec-marrom" id="como">
+    <div class="miolo duas centro-v">
+      <figure class="reveal foto-arco inv"><img src="assets/equipe-marrom.jpg" alt="As três médicas da Casa Aurora rindo juntas" loading="lazy" width="843" height="843"></figure>
+      <div>
+        <p class="etiqueta reveal">Como trabalhamos</p>
+        <h2 class="reveal">Do pré-natal ao nascimento, <em>com a mesma equipe</em>.</h2>
+        <ol class="passos vert" id="passos"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contratar">
+    <div class="miolo duas centro-v">
+      <figure class="reveal foto-arco"><img src="assets/trio-consultorio.jpg" alt="As três médicas da Casa Aurora no consultório" loading="lazy" width="1800" height="1100"></figure>
+      <div class="reveal">
+        <p class="etiqueta">Quem pode ser atendida?</p>
+        <h2>Gestantes que fazem o pré-natal <em>com uma de nós</em>.</h2>
+        <p class="lead">Atendemos gestantes que fazem o pré-natal com uma das três médicas. Para nós, o vínculo é parte essencial do cuidado.</p>
+        <button class="btn btn-terra" data-abrir-chat>Quero conversar com a equipe</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-escuro" id="equipe">
+    <div class="miolo">
+      <p class="etiqueta reveal">A equipe</p>
+      <h2 class="reveal">Três médicas, <em>um só cuidado</em>.</h2>
+      <div class="equipe" id="equipeGrade"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="bastidores">
+    <div class="miolo">
+      <p class="etiqueta reveal">Nos bastidores do cuidado</p>
+      <h2 class="reveal">No consultório e <em>na sala de parto</em>.</h2>
+      <figure class="reveal foto-larga"><img src="assets/trio-uniformes.jpg" alt="As três médicas da Casa Aurora de uniforme" loading="lazy" width="2400" height="1467"></figure>
+      <div class="ig-trio reveal" id="igTrio"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="duvidas">
+    <div class="miolo estreito">
+      <p class="etiqueta reveal">Dúvidas frequentes</p>
+      <h2 class="reveal">Respostas <em>rápidas</em>.</h2>
+      <div class="faq" id="faq"></div>
+    </div>
+  </section>
+
+  <section class="sec sec-marrom final">
+    <img class="marca-dagua esq" src="assets/aurora-arcos.svg" alt="" aria-hidden="true">
+    <div class="miolo centrado reveal">
+      <figure class="faixa"><img src="assets/equipe-sentadas.jpg" alt="A equipe Casa Aurora" loading="lazy" width="843" height="368"></figure>
+      <img class="logo-final" src="assets/logo-mark.svg" alt="Casa Aurora" width="130" height="100" loading="lazy">
+      <h2>Todo nascimento merece <em>um bom começo</em>.</h2>
+      <div class="acoes centro">
+        <button class="btn btn-terra" data-abrir-chat>Quero conversar sobre meu parto</button>
+        <a class="btn btn-linha" href="painel.html">Ver a área da equipe (demonstração)</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p>Casa Aurora · Assistência ao parto · Ginecologia e Obstetrícia</p>
+  <p class="demo-nota">Projeto de portfólio: clínica, médicas, contatos e dados são fictícios. As fotos são de modelos e servem apenas para ilustrar; a foto da assistente Lina foi gerada por IA.</p>
+  <p class="aviso">Este site tem caráter informativo e não substitui consulta médica. Em emergência obstétrica, procure a maternidade ou ligue 192 (SAMU).</p>
+  <p><a href="painel.html">Área da equipe</a></p>
+</footer>
+
+<script src="js/config.js?v=20261018u1"></script>
+<script src="js/db.js?v=20261018u1"></script>
+<script src="js/site.js?v=20261018u1"></script>
+<script src="js/assistant.js?v=20261018u1"></script>
+</body>
+</html>
